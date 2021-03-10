@@ -32,4 +32,8 @@ public class Fish extends AbstractAnimal{
 		return name;
 	}
 
+	public int getYear(){
+		return year;
+	}
+
 }

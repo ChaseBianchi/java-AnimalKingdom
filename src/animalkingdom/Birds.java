@@ -31,4 +31,8 @@ public class Birds extends AbstractAnimal{
 	public String getName(){
 		return name;
 	}
+
+	public int getYear(){
+		return year;
+	}
 }

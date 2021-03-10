@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main{
-	// private static List<AbstractAnimals> filterAnimals(List<AbstractAnimals> aList, CheckAnimal tester){
-	// 	List<AbstractAnimals> tempList = new ArrayList<>();
-	// 	for(AbstractAnimals a : aList){
-	// 		if(tester.test(a)){
-	// 			tempList.add(a);
-	// 		}
-	// 	}
-	// 	return tempList;
-	// }
+	private static List<AbstractAnimal> filterAnimals(List<AbstractAnimal> aList, CheckAnimal tester){
+		List<AbstractAnimal> tempList = new ArrayList<>();
+		for(AbstractAnimal a : aList){
+			if(tester.test(a)){
+				tempList.add(a);
+			}
+		}
+		return tempList;
+	}
 
 	public static void main(String[] args){
 		System.out.println("sanity test");
@@ -71,12 +71,23 @@ public class Main{
 		animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
 		animalList.forEach((a)-> System.out.println(a.getName() + " moves by " + a.move()));
 
-		// System.out.println("\n\n***Filtered to Lungs***");
-		// lungsList = filterAnimals(animalList, (a)->(a.breathe() == "lungs"));
+		System.out.println("\n\n***Filtered to Lungs***");
+		List<AbstractAnimal> lungsList = filterAnimals(animalList, (a)->(a.breathe() == "lungs"));
 		// System.out.println(lungsList);
+		lungsList.forEach((a)-> System.out.println(a));
 
+		System.out.println("\n\n***Lungs in 1758***");
+		List<AbstractAnimal> lungs1758 = filterAnimals(animalList, (a)->(a.breathe()=="lungs" && a.getYear()==1758));
+		lungs1758.forEach((a)-> System.out.println(a));
 
+		System.out.println("\n\n***Lungs and eggs***");
+		List<AbstractAnimal> lungsEggs = filterAnimals(animalList, (a)->(a.breathe()=="lungs" && a.reproduce()=="eggs"));
+		lungsEggs.forEach((a)-> System.out.println(a));
 
+		System.out.println("\n\n***1758 Alphabetical***");
+		List<AbstractAnimal> alpha1758 = filterAnimals(animalList, (a)->(a.getYear()==1758));
+		alpha1758.sort((a1, a2)->a1.getName().compareToIgnoreCase(a2.getName()));
+		alpha1758.forEach((a)-> System.out.println(a));
 
 
 	}

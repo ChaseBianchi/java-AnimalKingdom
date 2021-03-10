@@ -32,4 +32,7 @@ public class Mammals extends AbstractAnimal{
 		return name;
 	}
 
+	public int getYear(){
+		return year;
+	}
 }

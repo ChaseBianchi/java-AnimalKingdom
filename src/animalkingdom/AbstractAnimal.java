@@ -32,6 +32,10 @@ abstract class AbstractAnimal{
 		return name;
 	}
 
+	public int getYear(){
+		return year;
+	}
+
 
 
 
