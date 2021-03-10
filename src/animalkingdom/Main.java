@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main{
-	private static List<AbstractAnimals> filterAnimals(List<AbstractAnimals> aList, CheckAnimal tester){
-		List<AbstractAnimals> tempList = new ArrayList<>();
-		for(AbstractAnimals a : aList){
-			if(tester.test(a)){
-				tempList.add(a);
-			}
-		}
-		return tempList;
-	}
+	// private static List<AbstractAnimals> filterAnimals(List<AbstractAnimals> aList, CheckAnimal tester){
+	// 	List<AbstractAnimals> tempList = new ArrayList<>();
+	// 	for(AbstractAnimals a : aList){
+	// 		if(tester.test(a)){
+	// 			tempList.add(a);
+	// 		}
+	// 	}
+	// 	return tempList;
+	// }
 
 	public static void main(String[] args){
 		System.out.println("sanity test");
@@ -65,16 +65,15 @@ public class Main{
 
 		System.out.println("\n\n***Alphabetical***");
 		animalList.sort((a1, a2)->a1.getName().compareToIgnoreCase(a2.getName()));
-		// System.out.println(animalList);
 		animalList.forEach((a)-> System.out.println(a));
 		
 		System.out.println("\n\n***Movement Sorted***");
 		animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
 		animalList.forEach((a)-> System.out.println(a.getName() + " moves by " + a.move()));
 
-		System.out.println("\n\n***Filtered to Lungs***");
-		lungsList = filterAnimals(animalList, (a)->(a.breathe() == "lungs"));
-		System.out.println(lungsList);
+		// System.out.println("\n\n***Filtered to Lungs***");
+		// lungsList = filterAnimals(animalList, (a)->(a.breathe() == "lungs"));
+		// System.out.println(lungsList);
 
 
 
